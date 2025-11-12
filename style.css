@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+/* Las importaciones de fuentes se han mantenido, pero asegúrate de usarlas en tu selector 'body' o '.name' */
+
+/* ====================================
+   ESTILOS BASE Y CABECERA FIJA
+   ==================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 200vh;
+    margin: 0;
+    /* Ajustamos el padding-top para la nueva altura del header (90px) */
+    padding-top: 90px;
+    background-color: #000000;
+}
+
+header {
+    /* Propiedades de posición fija y ancho completo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    /* Alineación usando Flexbox */
+    display: flex;
+    justify-content: space-between; /* Empuja el nombre a la izquierda y el menú a la derecha */
+    align-items: center; /* Centra verticalmente ambos elementos */
+
+    /* Estilos visuales de la barra */
+    background-color: #333333; /* Corregido a color sólido gris oscuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: 90px; /* Altura fija de la barra */
+    padding: 0 30px; /* Espacio a los lados del header */
+}
+
+/* Estilo del Nombre "Jose Luis F.C" */
+.name {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    /* Se elimina el padding-left que ahora está en el padding del .main-header */
+}
+
+/* Contenedor del menú ahora es simple */
+.menu-container {
+    /* Ya no necesita display:flex, pues el header se encarga de la alineación */
+    padding: 0;
+    background-color: transparent;
+}
+
+/* ====================================
+   ESTILOS DEL MENÚ EXPANDIBLE (Se mantienen igual)
+   ==================================== */
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.menu-list li {
+    position: relative;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    white-space: nowrap;
+    border-radius: 15px;
+}
+
+.menu-list a:hover {
+    background-color: #00bcd4; /* Color de fondo al hacer hover */
+    color: #fff;
+}
+
+/* Estilos de los iconos */
+.menu-list a i {
+    margin-right: 0px;
+    font-size: 20px;
+    transition: margin-right 0.5s ease;
+}
+
+/* Estilos del texto que se expande */
+.menu-text {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: width 0.5s ease, opacity 0.5s ease, margin-left 0.5s ease;
+    margin-left: 0;
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.menu-list a:hover .menu-text {
+    width: auto;
+    opacity: 1;
+    margin-left: 10px;
+}
+
+.menu-list a:hover i {
+    margin-right: 10px;
+}
