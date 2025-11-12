@@ -1,56 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-/* Las importaciones de fuentes se han mantenido, pero asegúrate de usarlas en tu selector 'body' o '.name' */
-
 /* ====================================
    ESTILOS BASE Y CABECERA FIJA
    ==================================== */
-
+html {
+    height: 100%;
+}
 body {
     font-family: Arial, sans-serif;
-    min-height: 200vh;
+    min-height: 200vh; /* Para forzar el scroll */
     margin: 0;
-    /* Ajustamos el padding-top para la nueva altura del header (90px) */
     padding-top: 90px;
-    background-color: #000000;
+    background-color: #000000; /* Fondo global negro */
+    height: 100%;
 }
 
+/* ESTILOS DEL CONTENEDOR PRINCIPAL DE CONTENIDO */
+.content-area {
+    /* Forzamos a que el contenido ocupe todo el espacio vertical bajo el header */
+    min-height: calc(100vh - 90px);
+    background-color: #000000; /* Asegura que el área de contenido sea negra */
+}
+
+/* BARRA DE NAVEGACIÓN (HEADER) */
 header {
-    /* Propiedades de posición fija y ancho completo */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
 
-    /* Alineación usando Flexbox */
     display: flex;
-    justify-content: space-between; /* Empuja el nombre a la izquierda y el menú a la derecha */
-    align-items: center; /* Centra verticalmente ambos elementos */
+    justify-content: space-between;
+    align-items: center;
 
-    /* Estilos visuales de la barra */
-    background-color: #333333; /* Corregido a color sólido gris oscuro */
+    background-color: #333333; /* Gris oscuro para el navbar */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    height: 90px; /* Altura fija de la barra */
-    padding: 0 30px; /* Espacio a los lados del header */
+    height: 90px;
+    padding: 0 30px;
 }
 
-/* Estilo del Nombre "Jose Luis F.C" */
+/* ESTILO DEL NOMBRE: Contenedor DIV */
 .name {
-    color: white;
     font-size: 24px;
-    font-weight: bold;
-    /* Se elimina el padding-left que ahora está en el padding del .main-header */
+    font-weight: 900; /* La letra más gorda */
+}
+
+/* ESTILO DEL ENLACE DEL NOMBRE (Aplica el efecto de degradado y neutralización) */
+.name a {
+    /* Neutralización del enlace */
+    text-decoration: none;
+    color: transparent; /* Hace la fuente transparente para ver el degradado */
+    display: inline-block; /* Necesario para que scale funcione */
+
+    /* Degradado y animación */
+    background: linear-gradient(to right,
+    #FFFFFF 0%,
+    #00bcd4 50%,
+    #FFFFFF 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Transición más lenta y suave (0.5s) */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Neutralización de estilos de hover, active y visited (asegura que no haya color azul/púrpura) */
+.name a:hover{
+    text-decoration: none;
+    color: transparent;
+    transform: scale(1.10); /* Expansión del 10% */
 }
 
 /* Contenedor del menú ahora es simple */
 .menu-container {
-    /* Ya no necesita display:flex, pues el header se encarga de la alineación */
     padding: 0;
     background-color: transparent;
 }
 
 /* ====================================
-   ESTILOS DEL MENÚ EXPANDIBLE (Se mantienen igual)
+   ESTILOS DEL MENÚ EXPANDIBLE
    ==================================== */
 
 .menu-list {
@@ -109,4 +138,10 @@ header {
 
 .menu-list a:hover i {
     margin-right: 10px;
+}
+
+.content {
+
+    background-color: #000000;
+    height: 100%;
 }
