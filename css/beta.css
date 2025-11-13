@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
 /* ====================================
    ESTILOS BASE Y CABECERA FIJA
    ==================================== */
 html {
     height: 100%;
+    background-color: black;
 }
 body {
     font-family: Arial, sans-serif;
@@ -33,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    background-color: #333333; /* Gris oscuro para el navbar */
+    background-color: #171717; /* Gris oscuro para el navbar */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     height: 90px;
     padding: 0 30px;
@@ -51,13 +53,10 @@ header {
     text-decoration: none;
     color: transparent; /* Hace la fuente transparente para ver el degradado */
     display: inline-block; /* Necesario para que scale funcione */
+    font-size: xx-large;
 
     /* Degradado y animación */
-    background: linear-gradient(to right,
-    #FFFFFF 0%,
-    #00bcd4 50%,
-    #FFFFFF 100%
-    );
+    background-color: #00bcd4;
     -webkit-background-clip: text;
     background-clip: text;
 

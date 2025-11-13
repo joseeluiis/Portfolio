@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+body{
+    background-color: black;
+}
+.lista{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+.lista i{
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    font-size: x-large;
+    padding: 20px;
+    border-radius: 60px;
+    margin: 20px;
+}
+
+.entrada{
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-family: 'IM Fell English', serif;
+    font-weight: bold;
+    font-size: xx-large;
+}
