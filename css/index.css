@@ -1,30 +1,181 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+/*Caida emoticonos*/
+@keyframes fallDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px); /* Comienza 80px por encima de su posición final */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición normal */
+    }
+}
+
+/*Caida boton enter*/
+@keyframes fallUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80px); /* Comienza 80px por encima de su posición final */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición normal */
+    }
+}
+/*Flujo del enter*/
+@keyframes flujo-gradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: -200% 50%;
+    }
+}
+/*Trancision entre paginas*/
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
 body{
-    background-color: black;
+    background-color: #131313;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body.fade-out {
+    animation-name: fadeOut;
+    animation-duration: 0.5s; /* Debe coincidir con el tiempo del setTimeout en JS */
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards; /* Mantiene la opacidad en 0 al final */
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .lista{
     justify-content: center;
     align-items: center;
+
     display: flex;
     flex-direction: row;
     list-style: none;
     padding: 0;
+    margin-bottom: 70px;
 }
 .lista i{
     background: linear-gradient(to right, #4CAF50, #2196F3);
-    font-size: x-large;
+    font-size: 30px;
     padding: 20px;
     border-radius: 60px;
     margin: 20px;
 }
 
+.lista li {
+    margin-inline: 35px;
+    opacity: 0; /* Oculta los elementos al inicio */
+    animation-name: fallDown;
+    animation-duration: 0.8s; /* Duración de la caída */
+    animation-timing-function: ease-out; /* Velocidad suave */
+    animation-fill-mode: forwards; /* Mantiene el estilo final (100%) */
+}
+
+/* 3. Retraso (Delay) para cada ícono para que caigan secuencialmente */
+.lista li:nth-child(1) {
+    animation-delay: 1.2s; /* El primer icono cae después de 0.8s */
+}
+
+.lista li:nth-child(2) {
+    animation-delay: 1.6s; /* El segundo icono cae un poco después */
+}
+
+.lista li:nth-child(3) {
+    animation-delay: 2s; /* El tercer icono cae al final */
+}
 .entrada{
     background: linear-gradient(to right, #4CAF50, #2196F3);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-align: center;
-    font-family: 'IM Fell English', serif;
+    font-family: 'Lato', serif;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 60px;
+
+}
+.entrada1{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 690px;
+    overflow-wrap: break-word;}
+
+.boton{
+    background-color: #131313;
+    color: white;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+.boton1 {
+    /* El botón real ahora debe tener el fondo transparente para mostrar el fondo negro del padre */
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    /* El color del ícono debe ser blanco */
+    background:  linear-gradient(to right, #4CAF50, #2196F3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+}
+.enter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131313;
+    color:white ;
+    border: none;
+    margin-top: 60px;
+    opacity: 0; /* Empieza invisible */
+    animation-name: fallUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+.boton2 {
+    background:  linear-gradient(to right, #4CAF50, #2196F3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 8px;
+    background-size: 200% auto;
+    font-family: 'Lato', serif;
+    font-size: 25px;
+    font-weight: 900;
+    border: none;
+}
+
+.boton2:hover {
+    /* Define el degradado grande que queremos que se mueva */
+    background: linear-gradient(to right, #4CAF50, #2196F3, #4CAF50, #2196F3);
+
+    /* Hace el fondo más grande que el botón (CLAVE) */
+    background-size: 200% auto;
+
+    color: black; /* El texto se mantiene negro y sólido */
+    border-radius: 20px;
+
+
+    background-clip: unset;animation-name: flujo-gradiente;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
 }

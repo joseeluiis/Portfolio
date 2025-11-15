@@ -7,14 +7,130 @@
     <title>Title</title>
 </head>
 <body>
-<ul class="lista">
-    <li><i class="fa-solid fa-code "></i></li>
-    <li><i class="fa-solid fa-folder-open"></i></li>
-    <li><i class="fa-solid fa-microchip"></i></li>
-</ul>
-<div>
-    <span class="entrada">Bienvenido a mi Portfolio Web Personal</span>
+<div class="boton">
+    <button class="boton1" id="boton1"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+</div>
+<div class="wrapper">
+
+    <ul class="lista">
+        <li><i class="fa-solid fa-code "></i></li>
+        <li><i class="fa-solid fa-folder-open"></i></li>
+        <li><i class="fa-solid fa-microchip"></i></li>
+    </ul>
+    <div class="entrada1">
+        <span class="entrada" id="entrada-texto">Bienvenido a mi Portfolio Web Personal</span>
+    </div>
+<div class="enter">
+    <a href="beta.html">
+        <button class="boton2" id="boton2"><i class="fa-solid fa-right-from-left ">Enter</i></button>
+    </a>
+</div>
 
 </div>
 </body>
+<script>
+    // 1. Obtener el elemento HTML por su ID
+    const elementoTexto = document.getElementById('entrada-texto');
+
+    // 2. Guardar el texto completo original
+    const textoCompleto = elementoTexto.textContent;
+
+    // 3. Vaciar el contenido para empezar desde cero
+    elementoTexto.textContent = '';
+
+    // 4. Definir la velocidad de escritura (en milisegundos por letra)
+    const velocidad = 75;
+
+    // 5. Función de escritura gradual
+    function escribir(texto, indice) {
+        if (indice < texto.length) {
+            // Añadir el siguiente carácter
+            elementoTexto.textContent += texto.charAt(indice);
+
+            // Llamar a la función nuevamente después de un retraso
+            setTimeout(function() {
+                escribir(texto, indice + 1);
+            }, velocidad);
+        }
+    }
+
+    // 6. Iniciar el efecto (el 0 es el índice inicial)
+    window.onload = function() {
+        escribir(textoCompleto, 0);
+    };
+
+
+    // Pantalla completa
+    const fullScreenBoton = document.getElementById('boton1');
+    const fullScreenIcono = fullScreenBoton.querySelector('i');
+
+    // Función para actualizar la clase del ícono (se llama con el evento fullscreenchange)
+    function actualizarIconoFullScreen() {
+        // La verificación document.fullscreenElement se realiza FUERA de la función de activación
+        if (document.fullscreenElement) {
+            // La pantalla está completa (Mostrar icono de SALIR/MINIMIZAR)
+            fullScreenIcono.classList.remove('fa-up-right-and-down-left-from-center');
+            fullScreenIcono.classList.add('fa-down-left-and-up-right-to-center');
+        } else {
+            // La pantalla NO está completa (Mostrar icono de ENTRAR/MAXIMIZAR)
+            fullScreenIcono.classList.remove('fa-down-left-and-up-right-to-center');
+            fullScreenIcono.classList.add('fa-up-right-and-down-left-from-center');
+        }
+    }
+
+    // Función que activa el modo de pantalla completa (TOGGLE)
+    function activarPantallaCompleta() {
+        const elemento = document.documentElement;
+
+        if (document.fullscreenElement) {
+            // SALIR de pantalla completa (no necesitamos actualizar el ícono aquí, el listener lo hará)
+            document.exitFullscreen();
+        } else {
+            // ENTRAR en pantalla completa
+            if (elemento.requestFullscreen) {
+                elemento.requestFullscreen();
+            } else if (elemento.mozRequestFullScreen) {
+                elemento.mozRequestFullScreen();
+            } else if (elemento.webkitRequestFullscreen) {
+                elemento.webkitRequestFullscreen();
+            } else if (elemento.msRequestFullscreen) {
+                elemento.msRequestFullscreen();
+            }
+        }
+    }
+
+
+    // 1. Escuchar el click del botón para alternar el estado
+    fullScreenBoton.addEventListener('click', activarPantallaCompleta);
+
+    // 2. Escuchar el cambio de estado de Fullscreen en el documento
+    // Esto es CRUCIAL para que el ícono cambie incluso con la tecla ESC
+    document.addEventListener('fullscreenchange', actualizarIconoFullScreen);
+    document.addEventListener('webkitfullscreenchange', actualizarIconoFullScreen); // Para compatibilidad
+    document.addEventListener('mozfullscreenchange', actualizarIconoFullScreen);    // Para compatibilidad
+
+    //Trancision
+    const enterLink = document.querySelector('.enter a');
+
+    // Función que se dispara al pulsar el botón "Enter"
+    function iniciarTransicion(e) {
+        // 1. Evita la navegación inmediata que causa el salto brusco
+        e.preventDefault();
+
+        // 2. Obtiene la URL de destino (beta.html)
+        const destino = enterLink.href;
+
+        // 3. Añade la clase que activa la animación de salida (fade-out)
+        document.body.classList.add('fade-out');
+
+        // 4. Navega a la nueva página DESPUÉS de que termine la animación (ej: 500ms)
+        // El tiempo debe coincidir con la 'animation-duration' en tu CSS.
+        setTimeout(function() {
+            window.location.href = destino;
+        }, 500); // 500 milisegundos = 0.5 segundos
+    }
+
+    // Reemplaza la navegación directa en tu HTML por este listener
+    enterLink.addEventListener('click', iniciarTransicion);
+</script>
 </html>
