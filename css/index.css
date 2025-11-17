@@ -4,11 +4,11 @@
 @keyframes fallDown {
     0% {
         opacity: 0;
-        transform: translateY(-80px); /* Comienza 80px por encima de su posición final */
+        transform: translateY(-80px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Termina en su posición normal */
+        transform: translateY(0);
     }
 }
 
@@ -16,11 +16,11 @@
 @keyframes fallUp {
     0% {
         opacity: 0;
-        transform: translateY(80px); /* Comienza 80px por encima de su posición final */
+        transform: translateY(80px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Termina en su posición normal */
+        transform: translateY(0);
     }
 }
 /*Flujo del enter*/
@@ -37,8 +37,10 @@
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+/* --- ESTILOS BASE --- */
 body{
-    background-color: #131313;
+    background-color: #232323;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -48,9 +50,9 @@ body{
 
 body.fade-out {
     animation-name: fadeOut;
-    animation-duration: 0.5s; /* Debe coincidir con el tiempo del setTimeout en JS */
+    animation-duration: 0.5s;
     animation-timing-function: ease-out;
-    animation-fill-mode: forwards; /* Mantiene la opacidad en 0 al final */
+    animation-fill-mode: forwards;
 }
 
 .wrapper {
@@ -58,10 +60,11 @@ body.fade-out {
     flex-direction: column;
     align-items: center;
 }
+
+/* --- ESTILOS DE LA LISTA DE ÍCONOS --- */
 .lista{
     justify-content: center;
     align-items: center;
-
     display: flex;
     flex-direction: row;
     list-style: none;
@@ -69,80 +72,88 @@ body.fade-out {
     margin-bottom: 70px;
 }
 .lista i{
-    background: linear-gradient(to right, #4CAF50, #2196F3);
+    background: linear-gradient(to right, #00BCD4,#FF8C00);
     font-size: 30px;
     padding: 20px;
     border-radius: 60px;
     margin: 20px;
 }
-
 .lista li {
     margin-inline: 35px;
-    opacity: 0; /* Oculta los elementos al inicio */
+    opacity: 0;
     animation-name: fallDown;
-    animation-duration: 0.8s; /* Duración de la caída */
-    animation-timing-function: ease-out; /* Velocidad suave */
-    animation-fill-mode: forwards; /* Mantiene el estilo final (100%) */
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
-/* 3. Retraso (Delay) para cada ícono para que caigan secuencialmente */
-.lista li:nth-child(1) {
-    animation-delay: 1.2s; /* El primer icono cae después de 0.8s */
-}
+/* Retraso para la caída secuencial */
+.lista li:nth-child(1) { animation-delay: 1.2s; }
+.lista li:nth-child(2) { animation-delay: 1.6s; }
+.lista li:nth-child(3) { animation-delay: 2s; }
 
-.lista li:nth-child(2) {
-    animation-delay: 1.6s; /* El segundo icono cae un poco después */
-}
-
-.lista li:nth-child(3) {
-    animation-delay: 2s; /* El tercer icono cae al final */
-}
-.entrada{
-    background: linear-gradient(to right, #4CAF50, #2196F3);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+/* --- ESTILOS DEL TEXTO DE ENTRADA --- */
+/* Corregido: .entrada es ahora el elemento base */
+.entrada {
     text-align: center;
     font-family: 'Lato', serif;
     font-weight: bold;
     font-size: 60px;
 
+    /* ELIMINAMOS EL COLOR BASE AQUÍ para que los SPAN internos lo definan */
+    /* color: #FF8C00; */
 }
-.entrada1{
+
+/* CLASES APLICADAS POR JAVASCRIPT DURANTE LA ESCRITURA */
+.linea-clara {
+    color: #fff8f8; /* Color sólido blanco claro para "Bienvenidos a mi" */
+    display: block;
+}
+.linea-oscura {
+    background: linear-gradient(#00BCD4,#FF8C00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Color sólido naranja para "Portfolio Web Personal" */
+    display: block;
+}
+
+.entrada1 {
     justify-content: center;
     align-items: center;
     display: flex;
     max-width: 690px;
-    overflow-wrap: break-word;}
+}
 
+/* --- ESTILOS DEL BOTÓN FULLSCREEN --- */
 .boton{
-    background-color: #131313;
+    background-color: #232323;
     color: white;
     position: fixed;
     top: 20px;
     right: 20px;
 }
 .boton1 {
-    /* El botón real ahora debe tener el fondo transparente para mostrar el fondo negro del padre */
     background-color: transparent;
     border: none;
-    font-size: 1.5em;
-    /* El color del ícono debe ser blanco */
-    background:  linear-gradient(to right, #4CAF50, #2196F3);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
+    font-size: 24px;
+    color: #fff8f8;
 }
+
+.boton1:hover {
+    transform: scale(1.2);
+    transition: transform 0.6s ease;
+}
+
+/* --- ESTILOS DEL BOTÓN ENTER --- */
 .enter{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #131313;
+    background-color: #232323;
     color:white ;
     border: none;
     margin-top: 60px;
-    opacity: 0; /* Empieza invisible */
+    opacity: 0;
     animation-name: fallUp;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -150,7 +161,7 @@ body.fade-out {
     animation-delay: 2s;
 }
 .boton2 {
-    background:  linear-gradient(to right, #4CAF50, #2196F3);
+    background:  linear-gradient(to left, #00BCD4,#FF8C00);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -161,21 +172,10 @@ body.fade-out {
     font-weight: 900;
     border: none;
 }
-
 .boton2:hover {
-    /* Define el degradado grande que queremos que se mueva */
-    background: linear-gradient(to right, #4CAF50, #2196F3, #4CAF50, #2196F3);
-
-    /* Hace el fondo más grande que el botón (CLAVE) */
-    background-size: 200% auto;
-
-    color: black; /* El texto se mantiene negro y sólido */
+    transition: transform 0.6s ease;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
     border-radius: 20px;
-
-
-    background-clip: unset;animation-name: flujo-gradiente;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
 
 }
