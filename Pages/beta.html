@@ -45,7 +45,28 @@
 
 </main>
 <script>
-    const paginaAnt=document.get
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Recuperar el estado guardado
+        const wasFullscreen = localStorage.getItem('wasFullscreen');
+
+        if (wasFullscreen === 'true') {
+            // 2. Si venimos de Fullscreen, intentar activarlo de nuevo
+            const elemento = document.documentElement;
+
+            if (elemento.requestFullscreen) {
+                elemento.requestFullscreen();
+            } else if (elemento.mozRequestFullScreen) {
+                elemento.mozRequestFullScreen();
+            } else if (elemento.webkitRequestFullscreen) {
+                elemento.webkitRequestFullscreen();
+            } else if (elemento.msRequestFullscreen) {
+                elemento.msRequestFullscreen();
+            }
+
+            // 3. (OPCIONAL) Limpiar la bandera para futuras visitas directas
+            localStorage.removeItem('wasFullscreen');
+        }
+    });
 </script>
 </body>
 </html>
