@@ -72,7 +72,7 @@ body.fade-out {
     margin-bottom: 70px;
 }
 .lista i{
-    background: linear-gradient(to right, #00BCD4,#FF8C00);
+    background: linear-gradient(#00BCD4,#FF8C00);
     font-size: 30px;
     padding: 20px;
     border-radius: 60px;
@@ -106,7 +106,7 @@ body.fade-out {
 
 /* CLASES APLICADAS POR JAVASCRIPT DURANTE LA ESCRITURA */
 .linea-clara {
-    color: #fff8f8; /* Color sólido blanco claro para "Bienvenidos a mi" */
+    color: #EEEEFF;
     display: block;
 }
 .linea-oscura {
@@ -127,7 +127,7 @@ body.fade-out {
 /* --- ESTILOS DEL BOTÓN FULLSCREEN --- */
 .boton{
     background-color: #232323;
-    color: white;
+    color: #EEEEFF;
     position: fixed;
     top: 20px;
     right: 20px;
@@ -136,7 +136,7 @@ body.fade-out {
     background-color: transparent;
     border: none;
     font-size: 24px;
-    color: #fff8f8;
+    color: #EEEEFF;
 }
 
 .boton1:hover {
@@ -150,7 +150,7 @@ body.fade-out {
     justify-content: center;
     align-items: center;
     background-color: #232323;
-    color:white ;
+    color:#EEEEFF ;
     border: none;
     margin-top: 60px;
     opacity: 0;
@@ -161,7 +161,7 @@ body.fade-out {
     animation-delay: 2s;
 }
 .boton2 {
-    background:  linear-gradient(to left, #00BCD4,#FF8C00);
+    background:  linear-gradient(#00BCD4,#FF8C00);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
