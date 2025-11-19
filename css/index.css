@@ -38,6 +38,11 @@
     100% { opacity: 0; }
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 /* --- ESTILOS BASE --- */
 body{
     background-color: #232323;
@@ -79,7 +84,7 @@ body.fade-out {
     margin: 20px;
 }
 .lista li {
-    margin-inline: 35px;
+    margin-inline: 30px;
     opacity: 0;
     animation-name: fallDown;
     animation-duration: 0.8s;

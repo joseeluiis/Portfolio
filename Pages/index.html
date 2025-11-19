@@ -7,9 +7,6 @@
     <title>Title</title>
 </head>
 <body>
-<div class="boton">
-    <button class="boton1" id="boton1"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-</div>
 <div class="wrapper">
 
     <ul class="lista">
@@ -91,53 +88,12 @@
 
     // ... (El resto de tu código de Fullscreen y Transiciones va aquí abajo) ...
 
-    // Pantalla completa
-    const fullScreenBoton = document.getElementById('boton1');
-    const fullScreenIcono = fullScreenBoton.querySelector('i');
-
-    function actualizarIconoFullScreen() {
-        if (document.fullscreenElement) {
-            fullScreenIcono.classList.remove('fa-up-right-and-down-left-from-center');
-            fullScreenIcono.classList.add('fa-down-left-and-up-right-to-center');
-        } else {
-            fullScreenIcono.classList.remove('fa-down-left-and-up-right-to-center');
-            fullScreenIcono.classList.add('fa-up-right-and-down-left-from-center');
-        }
-    }
-
-    function activarPantallaCompleta() {
-        const elemento = document.documentElement;
-
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        } else {
-            if (elemento.requestFullscreen) {
-                elemento.requestFullscreen();
-            } else if (elemento.mozRequestFullScreen) {
-                elemento.mozRequestFullScreen();
-            } else if (elemento.webkitRequestFullscreen) {
-                elemento.webkitRequestFullscreen();
-            } else if (elemento.msRequestFullscreen) {
-                elemento.msRequestFullscreen();
-            }
-        }
-    }
-
-    fullScreenBoton.addEventListener('click', activarPantallaCompleta);
-    document.addEventListener('fullscreenchange', actualizarIconoFullScreen);
-    document.addEventListener('webkitfullscreenchange', actualizarIconoFullScreen);
-    document.addEventListener('mozfullscreenchange', actualizarIconoFullScreen);
-
     //Transición
     const enterLink = document.querySelector('.enter a');
 
     function iniciarTransicion(e) {
-        if (document.fullscreenElement) {
-            localStorage.setItem('wasFullscreen', 'true');
-        } else {
-            localStorage.setItem('wasFullscreen', 'false');
-        }
         e.preventDefault();
+
         const destino = enterLink.href;
         document.body.classList.add('fade-out');
 
@@ -149,17 +105,11 @@
     enterLink.addEventListener('click', iniciarTransicion);
 
     //Transición en caso de no interactuar
-    const tiempo_maximo=20000
+    const tiempo_maximo=10000
     let temporizador;
 
     function ejecucionInactividad(){
         document.body.classList.add('fade-out');
-
-        if (document.fullscreenElement) {
-            localStorage.setItem('wasFullscreen', 'true');
-        } else {
-            localStorage.setItem('wasFullscreen', 'false');
-        }
 
         setTimeout(() => {
             window.location.href = 'beta.html';
