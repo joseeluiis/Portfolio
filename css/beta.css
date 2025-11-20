@@ -1,4 +1,4 @@
-git @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Shadows+Into+Light&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
 
@@ -64,10 +64,22 @@ background-color: #1F1F1F;
     -webkit-background-clip: text;
     background-clip: text;
 }
-
-
+.contenedor{
+    margin-top: 270px;
+}
+.busto{
+    border-radius: 180px;
+    height: 420px;
+    width: 300px;
+}
 .logo2{
     font-size: 50px;
     font-family: 'Shadows Into Light', serif;
     font-weight: bold;
+}
+
+.intro{
+    font-family: 'Lato', serif;
+    font-weight: bold;
+    font-size: 50px;
 }
