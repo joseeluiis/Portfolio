@@ -1,155 +1,73 @@
 git @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Shadows+Into+Light&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-/* ====================================
-   ESTILOS BASE Y CABECERA FIJA
-   ==================================== */
-html {
-    height: 100%;
-    background-color: black;
-}
+
 body {
-    font-family: Arial, sans-serif;
-    min-height: 200vh; /* Para forzar el scroll */
     margin: 0;
-    padding-top: 90px;
-    background-color: #000000; /* Fondo global negro */
+    background-color: #232323;
     height: 100%;
+    color: white;
 
     animation-name: fadeIn;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-in;
+    animation-duration: 0.5s; /* Misma duración que el fadeOut */
+    animation-timing-function: ease-in; /* O ease-out, o ease. */
     animation-fill-mode: forwards;
 }
 
-/* ESTILOS DEL CONTENEDOR PRINCIPAL DE CONTENIDO */
-.content-area {
-    /* Forzamos a que el contenido ocupe todo el espacio vertical bajo el header */
-    min-height: calc(100vh - 90px);
-    background-color: #000000; /* Asegura que el área de contenido sea negra */
-}
-
-/* BARRA DE NAVEGACIÓN (HEADER) */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background-color: #171717; /* Gris oscuro para el navbar */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    height: 90px;
-    padding: 0 30px;
-}
-
-/* ESTILO DEL NOMBRE: Contenedor DIV */
-.name {
-    font-size: 24px;
-    font-weight: 900; /* La letra más gorda */
-}
-
-/* ESTILO DEL ENLACE DEL NOMBRE (Aplica el efecto de degradado y neutralización) */
-.name a {
-    /* Neutralización del enlace */
+a {
     text-decoration: none;
-    color: transparent; /* Hace la fuente transparente para ver el degradado */
-    display: inline-block; /* Necesario para que scale funcione */
-    font-size: xx-large;
+    color: inherit;
+}
+.txt{
+    color: #EEEEFF;
+    font-family: 'Lato', serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
 
-    /* Degradado y animación */
-    background-color: #00bcd4;
+.txt:hover{
+    background: linear-gradient(#00BCD4,#FF8C00);
     -webkit-background-clip: text;
     background-clip: text;
-
-    /* Transición más lenta y suave (0.5s) */
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Neutralización de estilos de hover, active y visited (asegura que no haya color azul/púrpura) */
-.name a:hover{
-    text-decoration: none;
     color: transparent;
-    transform: scale(1.10); /* Expansión del 10% */
+    transition: transform 0.4s ease-out;
+    transform: scale(1.3);
 }
-
-/* Contenedor del menú ahora es simple */
-.menu-container {
-    padding: 0;
-    background-color: transparent;
-}
-
-/* ====================================
-   ESTILOS DEL MENÚ EXPANDIBLE
-   ==================================== */
-
-.menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    background-color: transparent;
-    overflow: hidden;
-}
-
-.menu-list li {
-    position: relative;
-}
-
-.menu-list a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
+.logo{
+    font-size: 38px;
     font-weight: bold;
-    padding: 25px 30px;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.5s ease, color 0.5s ease;
-    white-space: nowrap;
-    border-radius: 15px;
+    font-family: 'Shadows Into Light', serif;
 }
 
-.menu-list a:hover {
-    background-color: #00bcd4; /* Color de fondo al hacer hover */
-    color: #fff;
+.nav{
+background-color: #1F1F1F;
 }
-
-/* Estilos de los iconos */
-.menu-list a i {
-    margin-right: 0px;
-    font-size: 20px;
-    transition: margin-right 0.5s ease;
-}
-
-/* Estilos del texto que se expande */
-.menu-text {
-    width: 0;
-    opacity: 0;
+.mobile-menu-links {
+    max-height: 0;
     overflow: hidden;
-    transition: width 0.5s ease, opacity 0.5s ease, margin-left 0.5s ease;
-    margin-left: 0;
+    transition: max-height 0.3s ease-out;
+}
+.mobile-menu-links.visible {
+    max-height: 300px; /* Suficiente altura para el menú */
+}
+.mobile-menu-links a:focus, .mobile-menu-links a:active {
+    background-color: transparent !important;
+    outline: none !important;
+    color: transparent !important;
+    background: linear-gradient(#00BCD4,#FF8C00);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-/* Efecto al pasar el ratón (Hover) */
-.menu-list a:hover .menu-text {
-    width: auto;
-    opacity: 1;
-    margin-left: 10px;
-}
 
-.menu-list a:hover i {
-    margin-right: 10px;
-}
-
-.content {
-
-    background-color: #000000;
-    height: 100%;
+.logo2{
+    font-size: 50px;
+    font-family: 'Shadows Into Light', serif;
+    font-weight: bold;
 }
