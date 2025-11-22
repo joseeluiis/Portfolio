@@ -65,7 +65,19 @@ background-color: #1F1F1F;
     background-clip: text;
 }
 .contenedor{
-    margin-top: 270px;
+    margin-top: 100px;
+    border: 0px solid transparent;
+    border-radius: 70px;
+    max-width: 100%;
+    transition: all 0.5s ease;
+
+}
+.contenedor:hover{
+    background-color: #1F1F1F;
+    max-width: 90%;
+}
+.contenedor:hover img{
+    border: #FF8C00 solid 6px ;
 }
 .busto{
     border-radius: 180px;
