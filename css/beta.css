@@ -48,6 +48,7 @@ a {
 .nav{
 background-color: #1F1F1F;
 }
+
 .mobile-menu-links {
     max-height: 0;
     overflow: hidden;
@@ -65,29 +66,54 @@ background-color: #1F1F1F;
     background-clip: text;
 }
 .contenedor{
-    margin-top: 100px;
     border: 0px solid transparent;
-    border-radius: 70px;
-    max-width: 100%;
-    transition: all 0.5s ease;
 
-}
-.contenedor:hover{
-    background-color: #1F1F1F;
+    height: 100vh;
     max-width: 90%;
+    align-content: center;
 }
-.contenedor:hover img{
-    border: #FF8C00 solid 6px ;
+.controw{
+    margin: 0 auto;
+    transition: all 1s ease;
+    padding: 70px;
+    justify-content: center;
+    align-content: center;
+}
+
+.controw:hover{
+    background-color: #1F1F1F;
+    border-radius: 70px;
+    margin: 0 auto;
+    border: #FF8C00 solid 5px ;
+    transition: all 0.5s ease;
+}
+
+
+.controw:hover img{
+    border: black solid 4px ;
+    transform: translateX(-30%);
+    border-radius: 500px;
+
+    transition: all 1.5s ease;
 }
 .busto{
     border-radius: 180px;
     height: 420px;
     width: 300px;
+    transition: all 1s ease;
+
 }
-.logo2{
+.descrip{
     font-size: 50px;
     font-family: 'Shadows Into Light', serif;
     font-weight: bold;
+
+}
+
+.cambio{
+    font-family: 'Lato', serif;
+    font-weight: bold;
+    font-size: 80px;
 }
 
 .intro{
