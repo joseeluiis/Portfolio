@@ -6,6 +6,75 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+@keyframes palabras {
+    /* Estado 1: 0% - 33.3% */
+    0% {
+        content: 'Desarrollador Web';
+        background-image: linear-gradient(#00BCD4, #FF8C00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    33.3% {
+        content: 'Desarrollador Web';
+        background-image: linear-gradient(#00BCD4, #FF8C00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Estado 2: 33.3% - 66.6% */
+    33.3001% { /* Empezamos justo después del primer estado */
+        content: 'Programador Back-End';
+        background-image: linear-gradient(#FF8C00, #00BCD4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    66.6% {
+        content: 'Programador Back-End';
+        background-image: linear-gradient(#FF8C00, #00BCD4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Estado 3: 66.6% - 100% (Efecto de degradado) */
+    66.6001% { /* Empezamos justo después del segundo estado */
+        content: 'Programador Front-End';
+        background-image: linear-gradient(#00BCD4, #FF8C00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    100% {
+        content: 'Programador Front-End';
+        background-image: linear-gradient(#00BCD4, #FF8C00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+@keyframes borde-giratorio {
+    /* Empieza en la posición inicial (esquina superior izquierda) */
+    0% {
+        background-position: 0% 50%;
+    }
+    /* Termina el ciclo en una posición desplazada */
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1.1); /* Empieza y termina con el tamaño del hover */
+    }
+    50% {
+        transform: scale(1.15); /* Se agranda un poco más en el medio */
+    }
+}
 
 body {
     margin: 0;
@@ -46,7 +115,7 @@ a {
 }
 
 .nav{
-background-color: #1F1F1F;
+    background-color: #1F1F1F;
 }
 
 .mobile-menu-links {
@@ -67,57 +136,162 @@ background-color: #1F1F1F;
 }
 .contenedor{
     border: 0px solid transparent;
-
     height: 100vh;
     max-width: 90%;
     align-content: center;
 }
-.controw{
+.controw {
     margin: 0 auto;
-    transition: all 1s ease;
     padding: 70px;
-    justify-content: center;
-    align-content: center;
-}
-
-.controw:hover{
-    background-color: #1F1F1F;
     border-radius: 70px;
-    margin: 0 auto;
-    border: #FF8C00 solid 5px ;
+    border: 4px solid transparent;
     transition: all 0.5s ease;
+
+    background-image:
+            linear-gradient(transparent, transparent),
+            linear-gradient(transparent, transparent);
+
+    background-clip: padding-box, border-box;
+    background-size: 100% 100%, 200% 200%;
+
+    animation: borde-giratorio 4s linear infinite;
+    animation-play-state: paused;
+    background-position: 0 0, 0% 50%;
 }
 
-
-.controw:hover img{
-    border: black solid 4px ;
-    transform: translateX(-30%);
-    border-radius: 500px;
-
-    transition: all 1.5s ease;
+.controw:hover {
+    background-image:
+            linear-gradient(#1F1F1F, #1F1F1F),
+            linear-gradient(90deg, #00BCD4 0%, #FF8C00 25%, #00BCD4 50%, #FF8C00 75%, #00BCD4 100%);
+    animation-play-state: running;
 }
-.busto{
+
+/* NUEVO: Contenedor para Imagen y Texto */
+.content-wrapper {
+    /* Por defecto, los elementos están centrados (la imagen y el texto oculto se superponen, lo cual está bien) */
+    position: relative;
+    width: 100%; /* Permite que el wrapper se centre dentro del col-12 */
+    /* Este div está centrado por las clases de Bootstrap en el HTML (d-flex justify-content-center) */
+}
+
+/* Ajuste del contenedor de la imagen */
+.image-container {
+    transition: transform 1.5s ease;
+    /* Asegura que la imagen esté centrada por defecto */
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ocupa todo el ancho inicial */
+}
+
+/* La imagen busto ya no tiene el transform por defecto */
+.busto {
     border-radius: 180px;
     height: 420px;
     width: 300px;
     transition: all 1s ease;
-
 }
-.descrip{
-    font-size: 50px;
-    font-family: 'Shadows Into Light', serif;
-    font-weight: bold;
 
+/* El texto debe ser posicionado de forma absoluta o relativa para que no altere el centrado inicial.
+   Lo haremos usando posicionamiento absoluto y alineación a la derecha */
+.texto-oculto {
+    opacity: 0;
+    position: absolute; /* Permite que el texto esté fuera del flujo normal y no fuerce el centrado */
+    top: 30%;
+    right: 0; /* Lo posicionamos en el extremo derecho del content-wrapper */
+    transform: translateY(-50%) translateX(50px);
+    text-align: left; /* Alineamos el texto a la izquierda para que se vea mejor */
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    width: 70%; /* Le damos un ancho fijo para el texto */
+}
+
+/* HOVER: Desplazamiento */
+
+.controw:hover .image-container {
+    /* Desplazamos el contenedor de la imagen a la izquierda */
+    transform: translateX(-35%); /* Ajusta este valor según cuánto quieres que se mueva */
+    transition: transform 1.5s ease;
+}
+
+.controw:hover .texto-oculto {
+    opacity: 1;
+    /* Centra verticalmente y trae a la posición 0 horizontal */
+    transform: translateY(-50%) translateX(0);
+    transition-delay: 0.5s;
 }
 
 .cambio{
     font-family: 'Lato', serif;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 70px;
+    padding-top: 70px;
+}
+.cambio:after{
+    content: 'Desarrollador Web';
+    animation-name: palabras;
+    animation-duration: 8s; /* 3 segundos por palabra/estado */
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
 }
 
-.intro{
+.correo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
     font-family: 'Lato', serif;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 19px;
+    transition: all 0.8s ease-out;
 }
+
+.correo-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 2px 20px;
+    background-color: #333333;
+    border-radius: 90px;
+    transition: all 1s ease-in-out;
+
+}.controw:hover .correo-contenido{
+     animation: latido 1s infinite alternate;
+ }
+
+.correo-contenido i,
+.correo-contenido p {
+    color: #EEEEFF;
+    transition: color 0.5s ease-out;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
+
+.correo-contenido p{
+    padding-top: 11px;
+    padding-left: 8px;
+}
+.correo-contenido:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 188, 212, 0.7),
+    0 0 20px 5px rgba(255, 140, 0, 0.5);
+    transform: scale(1.1);
+    transition: all 0.6s ease-in-out;
+    cursor: pointer;
+
+
+}.correo-contenido:hover i {
+     background: linear-gradient(#00BCD4,#FF8C00);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
+     transition: all 0.5s ease-out;
+ }
+
+.correo-contenido:hover p {
+    background: linear-gradient(#00BCD4,#FF8C00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.5s ease-out;
+}
+
