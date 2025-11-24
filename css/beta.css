@@ -6,6 +6,23 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+@keyframes palabras {
+    0%,33% {
+        content: 'Desarrollador Web';
+        color: #FF8C00;
+    }
+    33%,66%{
+        content: 'Programador Back-End';
+        color: #00BCD4;
+    }
+    66%,100% {
+        content: 'Desarrollador de fondo';
+        background: linear-gradient(#00BCD4,#FF8C00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
 
 body {
     margin: 0;
@@ -72,49 +89,97 @@ background-color: #1F1F1F;
     max-width: 90%;
     align-content: center;
 }
-.controw{
+.controw {
     margin: 0 auto;
     transition: all 1s ease;
     padding: 70px;
-    justify-content: center;
-    align-content: center;
+    /* Quitamos el justify-content y align-items directo, ya que el col-12 lo centra por defecto */
 }
 
-.controw:hover{
+.controw:hover {
     background-color: #1F1F1F;
     border-radius: 70px;
     margin: 0 auto;
     border: #FF8C00 solid 5px ;
-    transition: all 0.5s ease;
+    transition: all .3s linear;
 }
 
-
-.controw:hover img{
-    border: black solid 4px ;
-    transform: translateX(-30%);
-    border-radius: 500px;
-
-    transition: all 1.5s ease;
+/* NUEVO: Contenedor para Imagen y Texto */
+.content-wrapper {
+    /* Por defecto, los elementos están centrados (la imagen y el texto oculto se superponen, lo cual está bien) */
+    position: relative;
+    width: 100%; /* Permite que el wrapper se centre dentro del col-12 */
+    /* Este div está centrado por las clases de Bootstrap en el HTML (d-flex justify-content-center) */
 }
-.busto{
+
+/* Ajuste del contenedor de la imagen */
+.image-container {
+    transition: transform 1.5s ease;
+    /* Asegura que la imagen esté centrada por defecto */
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ocupa todo el ancho inicial */
+}
+
+/* La imagen busto ya no tiene el transform por defecto */
+.busto {
     border-radius: 180px;
     height: 420px;
     width: 300px;
     transition: all 1s ease;
-
 }
+
+/* El texto debe ser posicionado de forma absoluta o relativa para que no altere el centrado inicial.
+   Lo haremos usando posicionamiento absoluto y alineación a la derecha */
+.texto-oculto {
+    opacity: 0;
+    position: absolute; /* Permite que el texto esté fuera del flujo normal y no fuerce el centrado */
+    top: 40%;
+    right: 0; /* Lo posicionamos en el extremo derecho del content-wrapper */
+    transform: translateY(-50%) translateX(50px); /* Centra verticalmente y oculta ligeramente */
+    text-align: left; /* Alineamos el texto a la izquierda para que se vea mejor */
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    width: 70%; /* Le damos un ancho fijo para el texto */
+}
+
+/* HOVER: Desplazamiento */
+
+.controw:hover .image-container {
+    /* Desplazamos el contenedor de la imagen a la izquierda */
+    transform: translateX(-35%); /* Ajusta este valor según cuánto quieres que se mueva */
+    transition: transform 1.5s ease;
+}
+
+.controw:hover .texto-oculto {
+    opacity: 1;
+    /* Centra verticalmente y trae a la posición 0 horizontal */
+    transform: translateY(-50%) translateX(0);
+    transition-delay: 0.5s;
+}
+
+/* Manteniendo tus estilos de tipografía */
 .descrip{
-    font-size: 50px;
+    font-size: 70px;
     font-family: 'Shadows Into Light', serif;
     font-weight: bold;
-
 }
 
 .cambio{
     font-family: 'Lato', serif;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 70px;
+    /* ... otros estilos ... */
 }
+.cambio2{
+    font-family: 'Lato', serif;
+    font-weight: bold;
+    font-size: 70px;
+}
+.cambio2:after{
+    content: 'Desarrollador Web';
+    animation: palabras 6s infinite;
+}
+
 
 .intro{
     font-family: 'Lato', serif;
