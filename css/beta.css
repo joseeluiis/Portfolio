@@ -1,67 +1,23 @@
+        /************************************/
+        /*********IMPORTS Y FUENTES**********/
+        /************************************/
 @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Shadows+Into+Light&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bitcount+Grid+Double+Ink:wght@100..900&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Metal+Mania&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Shadows+Into+Light&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,100..900&display=swap');
+
+        /******************************************/
+        /*********ANIMACIONES Y KEYFRAMES**********/
+        /******************************************/
 
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-@keyframes palabras {
-    /* Estado 1: 0% - 33.3% */
-    0% {
-        content: 'Desarrollador Web';
-        background-image: linear-gradient(#00BCD4, #FF8C00);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-    33.3% {
-        content: 'Desarrollador Web';
-        background-image: linear-gradient(#00BCD4, #FF8C00);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    /* Estado 2: 33.3% - 66.6% */
-    33.3001% { /* Empezamos justo después del primer estado */
-        content: 'Programador Back-End';
-        background-image: linear-gradient(#FF8C00, #00BCD4);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-    66.6% {
-        content: 'Programador Back-End';
-        background-image: linear-gradient(#FF8C00, #00BCD4);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    /* Estado 3: 66.6% - 100% (Efecto de degradado) */
-    66.6001% { /* Empezamos justo después del segundo estado */
-        content: 'Programador Front-End';
-        background-image: linear-gradient(#00BCD4, #FF8C00);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-    100% {
-        content: 'Programador Front-End';
-        background-image: linear-gradient(#00BCD4, #FF8C00);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-}
 
 @keyframes borde-giratorio {
-    /* Empieza en la posición inicial (esquina superior izquierda) */
     0% {
         background-position: 0% 50%;
     }
-    /* Termina el ciclo en una posición desplazada */
     100% {
         background-position: 100% 50%;
     }
@@ -69,25 +25,48 @@
 
 @keyframes latido {
     0%, 100% {
-        transform: scale(1.1); /* Empieza y termina con el tamaño del hover */
+        transform: scale(1.05);
     }
     50% {
-        transform: scale(1.15); /* Se agranda un poco más en el medio */
+        transform: scale(1.1);
     }
 }
 
+@keyframes trancision {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+        /***************************************/
+        /**********ESTRUCTURA BÁSICA************/
+        /***************************************/
 body {
     margin: 0;
     background-color: #232323;
     height: 100%;
     color: white;
 
+    /*ENTRADA PROGRESIVA A LA WEB*/
     animation-name: fadeIn;
-    animation-duration: 0.5s; /* Misma duración que el fadeOut */
-    animation-timing-function: ease-in; /* O ease-out, o ease. */
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
 
+        /***************************************/
+        /**********NAVBAR************/
+        /***************************************/
 a {
     text-decoration: none;
     color: inherit;
@@ -97,7 +76,7 @@ a {
     font-family: 'Lato', serif;
     font-weight: bold;
     font-size: 20px;
-    text-decoration: none;
+
 }
 
 .txt:hover{
@@ -114,17 +93,24 @@ a {
     font-family: 'Shadows Into Light', serif;
 }
 
+.logo:hover{
+    transform: scale(1.2);
+    transition: transform 0.7s ease-in-out;
+}
+
 .nav{
     background-color: #1F1F1F;
 }
-
+        /***************************************/
+        /**********NAVBAR FORMATO MOVIL************/
+        /***************************************/
 .mobile-menu-links {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
 .mobile-menu-links.visible {
-    max-height: 300px; /* Suficiente altura para el menú */
+    max-height: 300px;
 }
 .mobile-menu-links a:focus, .mobile-menu-links a:active {
     background-color: transparent !important;
@@ -134,17 +120,21 @@ a {
     -webkit-background-clip: text;
     background-clip: text;
 }
+
+        /***************************************/
+        /**********CONTENEDOR GENERAL************/
+        /***************************************/
 .contenedor{
-    border: 0px solid transparent;
     height: 100vh;
     max-width: 90%;
     align-content: center;
+    position: relative;
 }
 .controw {
-    margin: 0 auto;
+    margin-top: 40px;:;
     padding: 70px;
     border-radius: 70px;
-    border: 4px solid transparent;
+    border: 10px groove transparent;
     transition: all 0.5s ease;
 
     background-image:
@@ -166,75 +156,75 @@ a {
     animation-play-state: running;
 }
 
-/* NUEVO: Contenedor para Imagen y Texto */
 .content-wrapper {
-    /* Por defecto, los elementos están centrados (la imagen y el texto oculto se superponen, lo cual está bien) */
     position: relative;
-    width: 100%; /* Permite que el wrapper se centre dentro del col-12 */
-    /* Este div está centrado por las clases de Bootstrap en el HTML (d-flex justify-content-center) */
+    width: 100%;
 }
 
-/* Ajuste del contenedor de la imagen */
 .image-container {
     transition: transform 1.5s ease;
-    /* Asegura que la imagen esté centrada por defecto */
     display: flex;
     justify-content: center;
-    width: 100%; /* Ocupa todo el ancho inicial */
+    width: 100%;
 }
 
-/* La imagen busto ya no tiene el transform por defecto */
 .busto {
     border-radius: 180px;
     height: 420px;
     width: 300px;
     transition: all 1s ease;
 }
-
-/* El texto debe ser posicionado de forma absoluta o relativa para que no altere el centrado inicial.
-   Lo haremos usando posicionamiento absoluto y alineación a la derecha */
-.texto-oculto {
+        /***************************************/
+        /**********CONTENDOR INTERNO************/
+        /***************************************/
+.globador {
     opacity: 0;
-    position: absolute; /* Permite que el texto esté fuera del flujo normal y no fuerce el centrado */
-    top: 30%;
-    right: 0; /* Lo posicionamos en el extremo derecho del content-wrapper */
+    position: absolute;
+    top: 40%;
+    right: 0;
     transform: translateY(-50%) translateX(50px);
-    text-align: left; /* Alineamos el texto a la izquierda para que se vea mejor */
+    text-align: left;
     transition: opacity 0.5s ease-in, transform 0.5s ease-in;
-    width: 70%; /* Le damos un ancho fijo para el texto */
+    width: 70%;
+    padding-left: 40px;
 }
 
-/* HOVER: Desplazamiento */
-
-.controw:hover .image-container {
-    /* Desplazamos el contenedor de la imagen a la izquierda */
-    transform: translateX(-35%); /* Ajusta este valor según cuánto quieres que se mueva */
-    transition: transform 1.5s ease;
-}
-
-.controw:hover .texto-oculto {
-    opacity: 1;
-    /* Centra verticalmente y trae a la posición 0 horizontal */
-    transform: translateY(-50%) translateX(0);
-    transition-delay: 0.5s;
-}
-
-.cambio{
+.cambio {
     font-family: 'Lato', serif;
     font-weight: bold;
     font-size: 70px;
     padding-top: 70px;
-}
-.cambio:after{
-    content: 'Desarrollador Web';
-    animation-name: palabras;
-    animation-duration: 8s; /* 3 segundos por palabra/estado */
-    animation-iteration-count: infinite;
-    animation-timing-function: steps(1, end);
+    padding-bottom: 70px;
+    height: 100px;text-align: center;
+    white-space: nowrap;
 }
 
-.correo {
+/*Ajusta el width y que no se rompa con salto de linea*/
+#texto-animado {
+    display: inline-block;
+    min-width: 320px;
+    text-align: left;
+}
+
+.controw:hover .image-container {
+    transform: translateX(-35%);
+    transition: transform 1.5s ease;
+}
+
+.controw:hover .globador {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    transition-delay: 0.5s;
+}
+
+.controw:hover .cv-contenedor {
+    animation: latido 2s infinite alternate;
+}
+
+
+.cv {
     display: flex;
+    margin-top: 70px;
     align-items: center;
     justify-content: center;
     padding-top: 50px;
@@ -244,50 +234,48 @@ a {
     transition: all 0.8s ease-out;
 }
 
-.correo-contenido {
+.cv-contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 2px 20px;
+    padding: 10px 20px;
     background-color: #333333;
     border-radius: 90px;
-    transition: all 1s ease-in-out;
+    white-space: nowrap;
+    margin-left: 7px;
+    width: 75px;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+}
 
-}.controw:hover .correo-contenido{
-     animation: latido 1s infinite alternate;
+.cv-contenedor i {
+     color: #EEEEFF;
+     font-size: 40px;
+     transition: color 0.5s ease-out;
+     flex-shrink: 0;
  }
 
-.correo-contenido i,
-.correo-contenido p {
-    color: #EEEEFF;
-    transition: color 0.5s ease-out;
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-}
 
-.correo-contenido p{
-    padding-top: 11px;
-    padding-left: 8px;
-}
-.correo-contenido:hover {
+.cv-contenedor:hover {
     box-shadow: 0 0 10px 5px rgba(0, 188, 212, 0.7),
     0 0 20px 5px rgba(255, 140, 0, 0.5);
     transform: scale(1.1);
-    transition: all 0.6s ease-in-out;
-    cursor: pointer;
+    width: 282px;
+    padding: 10px 40px;
+    transition: all 0.8s ease-in-out;
+}
 
 
-}.correo-contenido:hover i {
-     background: linear-gradient(#00BCD4,#FF8C00);
-     -webkit-background-clip: text;
-     background-clip: text;
-     color: transparent;
-     transition: all 0.5s ease-out;
- }
+.cv-contenedor:hover .cv-texto-oculto {
+    max-width: 350px;
+    opacity: 1;
+    transition: max-width 1s ease-in-out, opacity 0.4s ease-out 0.4s;
+    margin-left: 0;
+}
 
-.correo-contenido:hover p {
+
+.cv-contenedor:hover i {
     background: linear-gradient(#00BCD4,#FF8C00);
     -webkit-background-clip: text;
     background-clip: text;
@@ -295,3 +283,187 @@ a {
     transition: all 0.5s ease-out;
 }
 
+.cv-contenedor:hover button {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #EEEEFF;
+    transition: all 0.5s ease-out;
+}
+
+
+.cv-texto-oculto {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: -10px;
+    transition: all 1s ease-in-out;
+
+
+}
+
+.curriculum {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1.2;
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+        /*************************************************/
+        /**********************SOBRE MI*******************/
+        /*************************************************/
+
+        /*************************************************/
+        /****************CONTENEDOR GENERAL***************/
+        /*************************************************/
+
+
+.moji {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    top: 220px;
+    width: 230px;
+    height: 250px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.moji.visible {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.sobre_mi{
+    height: 250vh;
+    max-width: 90%;
+    padding-top: 70px;
+    position: relative;
+    flex-direction: column;
+    align-items: center
+}
+
+.nombre {
+    font-family: 'Shadows Into Light', serif;
+    font-weight: bold;
+    font-size: 185px;
+    opacity: 0;
+}
+
+.nombre.visible {
+    animation: trancision 2s forwards ease-in-out;
+    opacity: 1;
+}
+.cuadro-texto{
+    background-color: #1F1F1F;
+    padding:40px;
+    border-radius: 50px;
+    border: #EEEEFF 3px groove;
+    margin-top: 130px;
+}
+h1{
+    font-family: 'Lato', serif;
+    font-weight: bold;
+    border-bottom: 3px solid #EEEEFF;
+    text-decoration: none;
+    display: inline-block;
+
+}
+.coment{
+    font-family: 'Lato', serif;
+    font-size: 25px;
+}
+
+/*************************************************/
+/**************SERVICIOS/TARJETAS ICONO***********/
+/*************************************************/
+
+/* Contenedor de las tres tarjetas, limita el ancho para que no se extienda demasiado */
+.contenedor-servicios {
+    max-width: 900px;
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px 0;
+}
+
+.servicio-col {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo general de la tarjeta */
+.servicio-card {
+    background-color: #F8F9FA; /* Blanco/Gris claro para el fondo de la tarjeta */
+    color: #232323; /* Texto oscuro */
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 250px !important; /* Altura fija para el estado inicial */
+    overflow: hidden; /* Ocultar el texto de descripción */
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Estilo del ícono circular */
+.icono-circular {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+}
+
+/* Colores de fondo de los íconos (según la imagen) */
+.bg-primary { background-color: #4A90E2; } /* Azul para Desarrollo */
+.bg-purple { background-color: #A350FF; } /* Púrpura para Diseño */
+.bg-success { background-color: #00BF4C; } /* Verde para Innovación */
+
+/* Título de la tarjeta */
+.servicio-card .card-title {
+    font-weight: bold;
+    color: #232323;
+    font-size: 20px;
+}
+
+/* Contenedor de la descripción extendida (la que se despliega) */
+.descripcion-extendida {
+    height: 0;
+    opacity: 0;
+    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* Estilo al hacer clic/activo (Opcional: puedes usar :hover si prefieres) */
+.servicio-card.active {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    height: 350px !important; /* Aumentar la altura cuando está activo */
+}
+
+.servicio-card.active .descripcion-extendida {
+    height: auto; /* Permite que el contenido se muestre */
+    opacity: 1;
+}
+
+.servicio-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}

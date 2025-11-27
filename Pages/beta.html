@@ -1,80 +1,314 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Expanding Hover con Iconos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/beta.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú Expanding Hover con Iconos</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/beta.css">
+    </head>
+    <body>
+        <div class="menu-movil d-lg-none nav py-2">
+            <div class="d-flex justify-content-between align-items-center w-100 px-3 fixed-top">
+                <p class="logo mb-0"><a href="beta.html">JL</a></p>
 
-</head>
-<body>
-<div class="menu-movil d-lg-none nav py-2">
-    <div class="d-flex justify-content-between align-items-center w-100 px-3 fixed-top">
-        <p class="logo mb-0"><a href="beta.html">JL</a></p>
+                <button id="mobile-toggler" class="btn btn-link text-white fs-4" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
 
-        <button id="mobile-toggler" class="btn btn-link text-white fs-4" type="button">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-
-    <div id="mobile-menu-links" class="mobile-menu-links w-100">
-        <a class="nav-link txt text-center py-2" href="#">Sobre mi</a>
-        <a class="nav-link txt text-center py-2" href="#">Proyectos</a>
-        <a class="nav-link txt text-center py-2" href="#">Lenguajes y Frameworks</a>
-        <a class="nav-link txt text-center py-2" href="#">Contacto</a>
-    </div>
-</div>
-
-
-<div class="container-fluid w-100m mt-0 d-none d-lg-block fixed-top">
-    <div class=" nav row py-2 justify-content-center align-items-center text-center">
-        <div class=" txt col d-flex justify-content-center align-items-center">
-            <p class="mb-0"><a href="#">Sobre mi</a></p>
+            <div id="mobile-menu-links" class="mobile-menu-links w-100">
+                <a class="nav-link txt text-center py-2" href="#sobre_mi">Sobre mi</a>
+                <a class="nav-link txt text-center py-2" href="#proyectos">Proyectos</a>
+                <a class="nav-link txt text-center py-2" href="#lenguajes">Lenguajes y Frameworks</a>
+                <a class="nav-link txt text-center py-2" href="#contacto">Contacto</a>
+            </div>
         </div>
-        <div class="txt col d-flex justify-content-center align-items-center">
-            <p class="mb-0 "><a href="#">Proyectos</a></p>
-        </div>
-        <div class="col logo">
-            <p class="mb-0"><a href="beta.html">JL</a></p>
-        </div>
-        <div class="txt col d-flex justify-content-center align-items-center">
-            <p class="mb-0"><a href="#">Lenguajes y Frameworks</a></p>
-        </div>
-        <div class="txt col d-flex justify-content-center align-items-center">
-            <p class="mb-0"><a href="#">Contacto</a></p>
-        </div>
-    </div>
-</div>
-<div class=" contenedor container-fluid">
-    <div class="row controw">
-        <div class="col-12 d-flex justify-content-center align-items-center flex-grow-1">
 
-            <div class="content-wrapper d-flex justify-content-center align-items-center">
-                <div class="image-container">
-                    <img class="busto" src="../img/busto.JPG" alt="Foto Propia">
+
+        <div class="container-fluid w-100m mt-0 d-none d-lg-block fixed-top">
+            <div class=" nav row py-2 justify-content-center align-items-center text-center">
+                <div class=" txt col d-flex justify-content-center align-items-center">
+                    <a href="#sobre_mi">Sobre mi</a>
                 </div>
-                <div class="texto-oculto text-center">
-                    <p class="cambio"></p>
-                    <div class="correo">
-                        <div class="correo-contenido">
-                            <i class="fa-solid fa-envelope"></i>
-                            <p class>jseluisfernan@gmail.com</p>
+                <div class="txt col d-flex justify-content-center align-items-center">
+                    <a href="#proyectos">Proyectos</a>
+                </div>
+                <div class="col logo">
+                    <a href="#general">JL</a>
+                </div>
+                <div class="txt col d-flex justify-content-center align-items-center">
+                    <p class="mb-0"><a href="#lenguajes">Lenguajes y Frameworks</a></p>
+                </div>
+                <div class="txt col d-flex justify-content-center align-items-center">
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+        </div>
+        <div id="general" class=" bloque contenedor container-fluid">
+            <div class="row controw">
+                <div class="col-12 d-flex justify-content-center align-items-center flex-grow-1">
+
+                    <div class="content-wrapper d-flex justify-content-center align-items-center">
+                        <div class="image-container">
+                            <img class="busto" src="../img/busto.JPG" alt="Foto Propia">
+                        </div>
+                        <div class="globador text-center">
+                            <p class="cambio">
+                                <span class="textofijo">Programador</span>
+                                <span id="texto-animado"></span>
+                            </p>
+                            <div class="cv">
+                                <a href="../Documents/CV.pdf" target="_blank">
+                                <div class="cv-contenedor">
+                                    <i class="bi bi-file-earmark-person-fill"></i>
+                                    <span class="cv-texto-oculto">
+                                            <button class="curriculum" >Curriculum Vitae</button>
+                                    </span>
+                                </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+        <div id="sobre_mi" class=" sobre_mi bloque container-fluid text-center justify-content-center">
 
-</div>
+            <span class="nombre">José Luis Fernández Cabeza</span>
+            <img src="../img/moji.jpg" alt="Moji Propia" class="moji">
+            <div class="cuadro-texto">
+                <h1>Mi historia</h1>
+                <br><br>
+                <p class="coment">Soy un desarrollador apasionado por la tecnología que hoy nos rodea. Desde que tengo uso de razón me ha gustado
+                    el ámbito tecnológico y esos gustos los he ido desarrollando hasta el día de hoy. <br>Soy una persona responsable y hábil en la resolución de problemas, siempre
+                    me ha gustado lidiar con ellos yo mismo.<br><br>Empecé desde muy joven programando placas de Arduino y Raspberry hasta llegar aquí.
+                    Soy un gran desarrollador por un simple motivo, <strong>siempre quiero más</strong>. Nunca me conformo con entender mi campo, siempre trato de ampliar nuevos horizontes para así
+                    conocer todo tipo de lenguajes y frameworks.<br> Otra buena cualidad que me ha acompañado siempre es la curiosidad, jamás me conformo con un error o con una explicación
+                    básica del porqué de las cosas, siempre trato de buscar la lógica en todo.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 mt-5 justify-content-center contenedor-servicios">
+                <div class="col servicio-col">
+                    <div class="card h-100 servicio-card" data-servicio="desarrollo">
+                        <div class="card-body">
+                            <div class="icono-circular bg-primary">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h5 class="card-title mt-3">Desarrollo</h5>
+                            <div class="descripcion-extendida">
+                                <p class="card-text">Desarrollo de programas y aplicaciones funcionales y escalables utilizando tecnologías modernas.
+                                    Resolución de errores o bugs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</body>
-<script>
-    document.getElementById('mobile-toggler').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu-links');
-        menu.classList.toggle('visible');
-    });
-</script>
+                <div class="col servicio-col">
+                    <div class="card h-100 servicio-card" data-servicio="diseno">
+                        <div class="card-body">
+                            <div class="icono-circular bg-purple">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h5 class="card-title mt-3">Diseño</h5>
+                            <div class="descripcion-extendida">
+                                <p class="card-text">Creando interfaces intuitivas, técnicas y agradables para que la experiencia del
+                                usuario sea confortable y óptima</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col servicio-col">
+                    <div class="card h-100 servicio-card" data-servicio="innovacion">
+                        <div class="card-body">
+                            <div class="icono-circular bg-success">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h5 class="card-title mt-3">Innovación</h5>
+                            <div class="descripcion-extendida">
+                                <p class="card-text">Siempre aprendiendo nuevas tecnologías y ampliando horizontes para asi
+                                obtener nuevos recursos y ofrecer los programas y las aplicaciones de última generación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="proyectos" class=" bloque contenedor container-fluid">
+
+        </div>
+        <div id="lenguajes" class=" bloque contenedor container-fluid">
+
+        </div>
+        <div id="contacto" class=" bloque contenedor container-fluid">
+
+        </div>
+    </body>
+    <script>
+
+                <!--Animacion_del_texto_cambiante-->
+        document.getElementById('mobile-toggler').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu-links');
+            menu.classList.toggle('visible');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elemento = document.getElementById('texto-animado');
+            const palabras = [
+                'Back-End',
+                'Front-End'
+            ];
+            let indicePalabra = 0;
+            const duracionVisible = 2000;
+            const duracionTransicion = 700;
+
+            function actualizarTexto() {
+                const palabraActual = palabras[indicePalabra];
+
+                elemento.style.opacity = '0';
+                elemento.style.transition = `opacity ${duracionTransicion / 1500}s ease-in-out`;
+
+                setTimeout(() => {
+                    elemento.textContent = palabraActual;
+
+                    elemento.style.opacity = '1';
+
+                    indicePalabra = (indicePalabra + 1) % palabras.length;
+
+                    setTimeout(actualizarTexto, duracionVisible);
+
+                }, duracionTransicion);
+            }
+
+            elemento.style.backgroundImage = 'linear-gradient(90deg, #00BCD4, #FF8C00)';
+            elemento.style.webkitBackgroundClip = 'text';
+            elemento.style.backgroundClip = 'text';
+            elemento.style.color = 'transparent';
+            elemento.style.opacity = '0';
+
+            actualizarTexto();
+        });
+
+
+        <!--Division en secciones-->
+        const sections = document.querySelectorAll('.bloque');
+        let currentSection = 0;
+        let isScrolling = false;
+
+            function scrollToSection(index) {
+                if (index < 0 || index >= sections.length) return;
+                isScrolling = true;
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+                currentSection = index;
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 200); // Tiempo para que termine el scroll
+            }
+
+                window.addEventListener('wheel', (e) => {
+                    if (isScrolling) return;
+
+                    const section = sections[currentSection];
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const scrollY = window.scrollY;
+
+                    // Si scroll hacia abajo
+                    if (e.deltaY > 0) {
+                        // Solo si estamos al final de la sección
+                        if (scrollY + window.innerHeight >= sectionTop + sectionHeight - 10) {
+                            scrollToSection(currentSection + 1);
+                        }
+                    }
+                    // Si scroll hacia arriba
+                    else {
+                        // Solo si estamos al principio de la sección
+                        if (scrollY <= sectionTop + 10) {
+                            scrollToSection(currentSection - 1);
+                        }
+                    }
+                });
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const moji = document.querySelector('.moji');
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+
+                            setTimeout(() => {
+                                moji.classList.add('visible');
+                            }, 2000);
+
+                            observer.disconnect();
+                        }
+                    });
+                }, {
+                    threshold: 0.3
+                });
+
+                observer.observe(moji);
+            });
+
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                // Animar moji con delay (Dejamos como está)
+                const moji = document.querySelector('.moji');
+                if (moji) {
+                    const observerMoji = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                setTimeout(() => {
+                                    moji.classList.add('visible');
+                                }, 4000);
+                                observerMoji.disconnect();
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observerMoji.observe(moji);
+                }
+
+                // Animar nombre sin delay, solo cuando aparece en pantalla
+                const nombre = document.querySelector('.nombre');
+                if (nombre) {
+                    const observerNombre = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                // Eliminamos o reducimos el setTimeout
+                                nombre.classList.add('visible');
+                                observerNombre.disconnect();
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observerNombre.observe(nombre);
+                }
+
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const servicioCards = document.querySelectorAll('.servicio-card');
+
+                servicioCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        // Cierra todas las otras tarjetas primero
+                        servicioCards.forEach(c => {
+                            if (c !== card) {
+                                c.classList.remove('active');
+                            }
+                        });
+
+                        // Alterna la clase 'active' en la tarjeta clicada
+                        card.classList.toggle('active');
+                    });
+                });
+            });
+
+    </script>
 </html>
