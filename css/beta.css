@@ -35,7 +35,7 @@
 
 @keyframes borde-giratorio {
     0% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
     100% {
         background-position: 100% 50%;
@@ -185,7 +185,7 @@ a {
     border-radius: 70px;
     border: 10px groove transparent;
     transition: all 0.5s ease;
-    width: 100%; /* Asegura que ocupe todo el ancho */
+    width: 100%;
 
     /* Configuración de borde giratorio */
     background-image:
@@ -197,7 +197,7 @@ a {
 
     animation: borde-giratorio 4s linear infinite;
     animation-play-state: paused;
-    background-position: 0 0, 0% 50%;
+    background-position: 0 0, 0 50%;
 }
 
 .controw:hover {
@@ -359,8 +359,7 @@ a {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: none;
-    background-color: transparent;
+    background: transparent none;
     border: none;
     color: inherit;
     padding: 0;
@@ -426,12 +425,11 @@ a {
     opacity: 1;
 }
 .cuadro-texto{
-    max-width: 1000px;
+    width: 80%;
     margin: 140px auto 0;
     background: linear-gradient(145deg, #1f1f1f, #101010);
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
 }
@@ -465,8 +463,9 @@ a {
     /* Establece dimensiones, paddings, y fondo según tu diseño */
     margin-bottom: 40px;
     padding: 60px;
-    background-color: #333333; /* Fondo blanco */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: #333333;
+    border-radius: 10px;
+    justify-content: center;
     color: #EEEEFF;
     animation: tarjetas1 4s forwards;
     max-width: 350px; /* Ajustado para mejor control */
@@ -479,11 +478,11 @@ a {
 .card:hover {
     box-shadow: 0 0 10px 5px rgba(0, 188, 212, 0.7),
     0 0 20px 5px rgba(255, 140, 0, 0.5);
-    transform: translateY(-5px);
+    transform: translateY(10px) !important;
 
 }
 .card i{
-    font-size: 35px;
+    font-size: 45px;
     margin-bottom: 10px;
 }
 
@@ -529,7 +528,7 @@ a {
     box-sizing: border-box;
     overflow: hidden;
     /* Ajuste para que las columnas se vean bien */
-    margin: 10px;
+
     transition: all 0.5s ease-in-out;
 }
 .marco_proyectos:hover{
@@ -540,13 +539,14 @@ a {
 
 .marco_proyectos:hover img{
     transform: scale(1.05);
-    transition: all 0.5s ease-in-out;
 }
 .marco_proyectos img{
     width: 100%;
     height: 220px;
     border-radius: 15px;
-    object-fit: cover; /* Asegura que la imagen se vea bien */
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+
 
 }
 .titulo_proyectos{
@@ -563,14 +563,17 @@ a {
 
 .cont-fr{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+
 }
 .cont-fr i{
     font-size: 30px;
     padding: 10px;
     border-radius: 10px;
+
+
+
 }
 
 .cont-fr i:hover{
@@ -592,6 +595,22 @@ a {
     color: #f7df1e;
 }
 
+.acceso_git{
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+.acceso_git:hover{
+    color:#6a0075;
+    background-color: #EEEEFF;
+}
+.marco_proyectos a{
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 50px;
+}
 
 /*************************************************/
 /**********************LENGUAJES******************/
